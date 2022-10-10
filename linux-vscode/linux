@@ -1,0 +1,27 @@
+想想看linux好像也没什么要记得，或者说要记的东西跟vscode的里面的终端命令差不多，虽然因果关系好像反了（doge）
+
+ssh命令
+ssh连接服务器
+ssh cuizhe@10.100.195.17
+ssh连接运行中的docker
+在vscode的输入ssh，自己就跳出来了
+
+还有什么知识呢？
+vi编辑器
+i，esc，：wq等等
+
+debug
+通过pdb库
+
+想想看好像也没什么了，主要的事情就是报错，然后解决报错，把worklog里面碰到的情况复制过来吧
+
+
+碰到了vscode无法连接服务器的问题，卡了三个小时
+
+Copying VS Code Server to host with scp
+
+Downloading VS Code Server
+
+要删掉服务器里的.vscode-server文件夹
+
+可以用终端登上去删

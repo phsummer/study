@@ -1,0 +1,46 @@
+概览
+
+工作区（Working Directory）
+就是你在电脑里能看到的目录，比如我的gitrepo文件夹就是一个工作区：
+
+版本库（Repository）
+工作区有一个隐藏目录.git，这个不算工作区，而是Git的版本库。
+
+git add
+将文件提交到暂存区
+
+git commit -m “tag”
+将暂存区的文件提交到当前分支，tag随便写，但不能不写
+
+git status
+查看各个区的文件
+
+git config --list
+查看当前git的各种设置
+git config --global user.name "FIRST_NAME LAST_NAME"
+git config --global user.email "MY_NAME@example.com"
+工作前设置好用户和邮箱
+
+git push <remote> <branch>
+将commit过的文件提交到repo，常用为
+git push origin main
+
+git pull
+下拉分支
+
+git remote -v
+查看远程repo
+
+git branch -v
+查看当前分支
+
+git checkout a
+创建分支a
+
+git remote <operation> <remote名> <网址>
+operation有add 初始化添加远程库
+rm 删除远程库
+
+git merge a
+合并分支a
+主要先切换到其他分支
