@@ -1,0 +1,2 @@
+tensor的shape是tuple，不能直接改写
+可以用tensor.reshape 或者  tensor.view
