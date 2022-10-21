@@ -1,0 +1,37 @@
+export MY_CONTAINER="zsl_pt19_v100"
+num=`docker ps -a|grep "$MY_CONTAINER"|wc -l`
+echo $num
+echo $MY_CONTAINER
+if [ 0 -eq $num ];then
+docker run -it \
+         --shm-size '64gb' \
+         --gpus all \
+         --name $MY_CONTAINER \
+        -v `pwd`:/mnt \
+        -v /data1:/data1 \
+        -v /home/zhangshuanglin:/home/zhangshuanglin \
+        --privileged=true \
+        -u root \
+        nvcr.io/nvidia/pytorch:20.07-py3 \
+        /bin/bash
+else
+  docker start $MY_CONTAINER
+  docker exec -ti $MY_CONTAINER /bin/bash
+fi
+
+
+--------------------------------------------------------------------------------------------------------------
+
+
+docker run \
+--gpus 8 \
+-it \
+--privileged \
+--name=mmcls_cxy \ # 容器名字
+--ipc=host \
+--ulimit memlock=-1 \  # 最大进程数
+--ulimit stack=67108864 \
+-v /data/pytorch/datasets/imagenet_training:/data \ # -v是挂载外部路径进docker容器，这行是挂载数据路径
+-v /home/caixiangyu/model_research/mmclassification:/workspace/mmclassification \ # 这行是挂载代码路径，这行换成你自己的
+nvcr.io/nvidia/pytorch:21.06-py3 \ # 这行是依赖镜像，这里是1.9的pytorch框架
+/bin/bash
